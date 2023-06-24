@@ -11,7 +11,7 @@ type PostService struct {
 }
 
 func (s PostService) Get(ctx context.Context, id string) (models.Post, error) {
-	return s.Db.Get(ctx, id)
+	return s.Db.Get(ctx, "post:"+id)
 }
 
 func (s PostService) Save(ctx context.Context, post models.Post) (models.Post, error) {
