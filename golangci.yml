@@ -1,0 +1,34 @@
+linters-settings:
+  gocyclo:
+    # minimal code complexity to report
+    min-complexity: 16
+  govet:
+    # report about shadowed variables
+    check-shadowing: true
+  misspell:
+    # Correct spellings using locale preferences for US or UK.
+    # Default is to use a neutral variety of English.
+    # Setting locale to US will correct the British spelling of 'colour' to 'color'.
+    locale: US
+
+  gocritic:
+    # Which checks should be disabled; can't be combined with 'enabled-checks'; default is empty
+    disabled-checks:
+      - ifElseChain
+  nestif:
+    # minimal complexity of if statements to report, 5 by default
+    min-complexity: 8 #TODO: decrease this number
+
+run:
+  concurrency: 4
+  timeout: 10m
+
+linters:
+  disable-all: true
+  enable:
+    - whitespace
+
+# golangci.com configuration
+# https://github.com/golangci/golangci/wiki/Configuration
+service:
+  golangci-lint-version: 1.51.0 # use the fixed version to not introduce new linters unexpectedly
