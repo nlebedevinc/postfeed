@@ -26,6 +26,23 @@ run:
 linters:
   disable-all: true
   enable:
+    - asciicheck
+    - depguard
+    - exportloopref
+    - gofmt
+    - goimports
+    - gomodguard
+    - goprintffuncname
+    # - gosimple
+    # - govet
+    # - ineffassign
+    - misspell
+    - nakedret
+    - nolintlint
+    # - prealloc
+    # - staticcheck
+    # - typecheck
+    - unconvert
     - whitespace
 
 # golangci.com configuration
