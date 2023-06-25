@@ -23,6 +23,14 @@ func (s PostService) Save(ctx context.Context, post models.Post) (models.Post, e
 	return post, nil
 }
 
+func (s PostService) MGet(ctx context.Context, uid ...string) ([]models.Post, error) {
+	ids := make([]string, len(uid))
+	for i, s := range uid {
+		ids[i] = "post:" + s
+	}
+	return s.Db.MGet(ctx, ids...)
+}
+
 func NewPostService(db Redis[models.Post]) PostService {
 	s := PostService{Db: db}
 	return s
